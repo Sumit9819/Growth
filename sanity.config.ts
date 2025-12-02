@@ -25,11 +25,7 @@ export default defineConfig({
         // https://www.sanity.io/docs/the-vision-plugin
         visionTool({ defaultApiVersion: apiVersion }),
         presentationTool({
-            previewUrl: {
-                draftMode: {
-                    enable: '/api/draft',
-                },
-            },
+            previewUrl: 'https://growthmeta.vercel.app',
         }),
     ],
 })
