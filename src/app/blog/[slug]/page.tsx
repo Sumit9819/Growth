@@ -1,0 +1,90 @@
+import { client } from "@/sanity/lib/client";
+import { Section } from "@/components/ui/section";
+import { Badge } from "@/components/ui/badge";
+import { Calendar, User } from "lucide-react";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { PortableText } from '@portabletext/react';
+
+interface BlogPostPageProps {
+    params: { slug: string };
+}
+
+async function getPost(slug: string) {
+    const query = `*[_type == "post" && slug.current == $slug][0]{
+    title,
+    author,
+    publishedAt,
+    category,
+    content,
+    metaDescription,
+    excerpt
+  }`;
+
+    const post = await client.fetch(query, { slug });
+    return post;
+}
+
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+    const post = await getPost(params.slug);
+
+    if (!post) {
+        return { title: "Post Not Found" };
+    }
+
+    return {
+        title: `${post.title} | GrowthMeta Blog`,
+        description: post.metaDescription || post.excerpt,
+    };
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+    const post = await getPost(params.slug);
+
+    if (!post) {
+        notFound();
+    }
+
+    return (
+        <div className="flex flex-col min-h-screen pt-32">
+            <Section>
+                <article className="max-w-4xl mx-auto">
+                    {/* Header */}
+                    <header className="mb-12">
+                        {post.category && (
+                            <Badge variant="outline" className="mb-4">
+                                {post.category}
+                            </Badge>
+                        )}
+                        <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6">
+                            {post.title}
+                        </h1>
+                        <div className="flex items-center gap-6 text-muted-foreground">
+                            {post.author && (
+                                <div className="flex items-center gap-2">
+                                    <User className="h-4 w-4" />
+                                    <span>{post.author}</span>
+                                </div>
+                            )}
+                            {post.publishedAt && (
+                                <div className="flex items-center gap-2">
+                                    <Calendar className="h-4 w-4" />
+                                    <span>{new Date(post.publishedAt).toLocaleDateString('en-US', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric'
+                                    })}</span>
+                                </div>
+                            )}
+                        </div>
+                    </header>
+
+                    {/* Content */}
+                    <div className="prose prose-invert prose-lg max-w-none">
+                        <PortableText value={post.content} />
+                    </div>
+                </article>
+            </Section>
+        </div>
+    );
+}
