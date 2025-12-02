@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* stylelint-disable-next-line */
+@theme {
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-outfit);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-border: var(--border);
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+
+  --primary: #3B82F6;
+  --primary-foreground: #000000;
+
+  --secondary: #10B981;
+  --secondary-foreground: #ffffff;
+
+  --muted: #1a1a1a;
+  --muted-foreground: #a1a1aa;
+
+  --accent: #06B6D4;
+  --accent-foreground: #ffffff;
+
+  --border: #333333;
+
+  /* Brand colors */
+  --blue: #3B82F6;
+  --green: #10B981;
+  --cyan: #06B6D4;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/* Container utilities for better layout control */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px;
+  }
+}
