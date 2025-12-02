@@ -2,7 +2,7 @@ import { client } from "@/sanity/lib/client";
 import { ServiceHero } from "@/components/service/ServiceHero";
 import { BenefitsGrid } from "@/components/service/BenefitsGrid";
 import { ProcessTimeline } from "@/components/service/ProcessTimeline";
-import { Case StudyCard } from "@/components/service/CaseStudyCard";
+import { CaseStudyCard } from "@/components/service/CaseStudyCard";
 import { TrustSignals } from "@/components/service/TrustSignals";
 import { FAQ } from "@/components/ui/faq";
 import { Section } from "@/components/ui/section";
