@@ -1,9 +1,12 @@
+"use client";
+
 import type { Metadata } from "next";
 import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { VisualEditingWrapper } from "@/components/VisualEditingWrapper";
+import { usePathname } from "next/navigation";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,26 +18,24 @@ const firaCode = Fira_Code({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "GrowthMeta | Digital Marketing Agency",
-  description: "Enterprise SEO, B2B Lead Generation, and High-Fidelity UI/UX Design.",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const isStudioRoute = pathname?.startsWith("/studio");
+
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${firaCode.variable} antialiased bg-background text-foreground font-sans flex flex-col min-h-screen`}
+        className={`${inter.variable} ${firaCode.variable} antialiased bg-background text-foreground font-sans ${!isStudioRoute ? 'flex flex-col min-h-screen' : ''}`}
       >
-        <Navbar />
-        <main className="flex-1">
+        {!isStudioRoute && <Navbar />}
+        <main className={!isStudioRoute ? "flex-1" : ""}>
           {children}
         </main>
-        <Footer />
+        {!isStudioRoute && <Footer />}
         <VisualEditingWrapper />
       </body>
     </html>
