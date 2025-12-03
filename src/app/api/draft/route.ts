@@ -4,9 +4,13 @@ import { validatePreviewUrl } from "@sanity/preview-url-secret";
 import { client } from "@/sanity/lib/client";
 import { token } from "../../../sanity/lib/token";
 
-const clientWithToken = client.withConfig({ token });
-
 export async function GET(request: Request) {
+    if (!token) {
+        return new Response("Missing SANITY_API_READ_TOKEN", { status: 500 });
+    }
+
+    const clientWithToken = client.withConfig({ token });
+
     const { isValid, redirectTo = "/" } = await validatePreviewUrl(
         clientWithToken,
         request.url
