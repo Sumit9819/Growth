@@ -4,15 +4,16 @@ import { useEffect } from "react";
 
 export function VisualEditingWrapper() {
     useEffect(() => {
-        // Only do this on the client side and in preview mode
+        // Dynamically import and enable visual editing
+        // The enableVisualEditing function will automatically detect
+        // when the page is being viewed in Sanity Presentation tool
         if (typeof window !== "undefined") {
-            const params = new URLSearchParams(window.location.search);
-            if (params.get("preview") === "true") {
-                import("@sanity/visual-editing").then(({ enableVisualEditing }) => {
-                    const disable = enableVisualEditing();
-                    return () => disable && disable();
-                });
-            }
+            import("@sanity/visual-editing").then(({ enableVisualEditing }) => {
+                const cleanup = enableVisualEditing();
+                return () => {
+                    if (cleanup) cleanup();
+                };
+            });
         }
     }, []);
 
