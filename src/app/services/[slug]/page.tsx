@@ -34,12 +34,17 @@ async function getService(slug: string) {
     content
   }`;
 
-    const service = await sanityFetch<any>({
-        query,
-        params: { slug },
-        tags: [`service:${slug}`],
-    });
-    return service;
+    try {
+        const service = await sanityFetch<any>({
+            query,
+            params: { slug },
+            tags: [`service:${slug}`],
+        });
+        return service;
+    } catch (error) {
+        console.error("Error fetching service:", error);
+        return null;
+    }
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {

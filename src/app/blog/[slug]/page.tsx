@@ -21,8 +21,13 @@ async function getPost(slug: string) {
     excerpt
   }`;
 
-    const post = await client.fetch(query, { slug });
-    return post;
+    try {
+        const post = await client.fetch(query, { slug });
+        return post;
+    } catch (error) {
+        console.error("Error fetching post:", error);
+        return null;
+    }
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
