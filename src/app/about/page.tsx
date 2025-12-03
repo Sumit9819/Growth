@@ -13,6 +13,7 @@ interface TeamMember {
     name: string;
     role: string;
     bio: string;
+    imageUrl?: string;
     linkedIn?: string;
     twitter?: string;
 }
@@ -26,6 +27,7 @@ export default function AboutPage() {
         name,
         role,
         bio,
+        "imageUrl": image.asset->url,
         linkedIn,
         twitter
       }`);
@@ -97,8 +99,16 @@ export default function AboutPage() {
                             >
                                 <Card className="h-full bg-[#0E0E0E] border-[#1F1F1F] hover:border-primary/50 transition-all duration-300 group">
                                     <CardContent className="p-8 text-center">
-                                        {/* Avatar placeholder */}
-                                        <div className="h-24 w-24 rounded-full bg-gradient-to-br from-primary to-accent mx-auto mb-6 opacity-80 group-hover:opacity-100 transition-opacity" />
+                                        {/* Profile image or avatar placeholder */}
+                                        {member.imageUrl ? (
+                                            <img
+                                                src={member.imageUrl}
+                                                alt={member.name}
+                                                className="h-24 w-24 rounded-full object-cover mx-auto mb-6 border-2 border-primary/20 group-hover:border-primary/50 transition-all"
+                                            />
+                                        ) : (
+                                            <div className="h-24 w-24 rounded-full bg-gradient-to-br from-primary to-accent mx-auto mb-6 opacity-80 group-hover:opacity-100 transition-opacity" />
+                                        )}
 
                                         <h3 className="text-xl font-bold font-sans mb-2 text-white">{member.name}</h3>
                                         <p className="text-primary mb-6 font-medium">{member.role}</p>
