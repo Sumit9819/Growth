@@ -12,21 +12,25 @@ export async function sanityFetch<QueryResponse>({
     tags?: string[];
 }) {
     const isDraftMode = (await draftMode()).isEnabled;
+    const hasToken = !!process.env.SANITY_API_READ_TOKEN;
 
-    if (isDraftMode && !process.env.SANITY_API_READ_TOKEN) {
-        throw new Error(
-            "The `SANITY_API_READ_TOKEN` environment variable is required."
+    // If draft mode is enabled but no token, warn and fallback to published
+    if (isDraftMode && !hasToken) {
+        console.warn(
+            "Draft Mode is enabled but SANITY_API_READ_TOKEN is missing. Falling back to published content."
         );
     }
 
+    const useDraftMode = isDraftMode && hasToken;
+
     return client.fetch<QueryResponse>(query, params, {
-        ...(isDraftMode && {
+        ...(useDraftMode && {
             token: process.env.SANITY_API_READ_TOKEN,
             perspective: "previewDrafts",
             stega: true,
         }),
         next: {
-            revalidate: isDraftMode ? 0 : 60,
+            revalidate: useDraftMode ? 0 : 60,
             tags,
         },
     });
