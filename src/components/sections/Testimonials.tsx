@@ -109,7 +109,7 @@ export function Testimonials() {
                         <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white font-bold text-sm">JP</div>
                         <div>
                             <div className="font-bold text-white">James Park</div>
-                            <div className="text-xs text-gray-400">CEO, EcoVentures</div>
+                            <div className="text-xs text-gray-300">CEO, EcoVentures</div>
                         </div>
                     </div>
                 </motion.div>

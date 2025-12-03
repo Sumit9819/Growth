@@ -59,7 +59,7 @@ export function StatsSection() {
                             <Counter from={0} to={stat.value} duration={2} />
                             {stat.suffix}
                         </div>
-                        <div className="text-sm md:text-base text-gray-400 font-medium group-hover:text-white transition-colors">
+                        <div className="text-sm md:text-base text-gray-300 font-medium group-hover:text-white transition-colors">
                             {stat.label}
                         </div>
                     </motion.div>

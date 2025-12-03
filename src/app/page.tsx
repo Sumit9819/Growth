@@ -42,15 +42,15 @@ export default function Home() {
                 Scale Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Digital Presence</span> with Precision.
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light">
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light">
                 GrowthMeta combines technical SEO, data-driven lead generation, and high-fidelity design to build engines of growth for ambitious brands.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
-                <Button asChild size="lg" variant="primary" showIcon>
+                <Button asChild size="lg" variant="primary" showIcon aria-label="Start Growing with GrowthMeta">
                   <Link href="/contact">Start Growing</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="rounded-full px-8 h-14 text-base backdrop-blur-sm bg-white/5 border-white/10 hover:bg-white/10 text-white">
+                <Button asChild variant="outline" size="lg" className="rounded-full px-8 h-14 text-base backdrop-blur-sm bg-white/5 border-white/10 hover:bg-white/10 text-white" aria-label="View Our Work">
                   <Link href="/work">View Our Work</Link>
                 </Button>
               </div>
@@ -80,7 +80,7 @@ export default function Home() {
       <Section className="bg-black/50">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold font-sans mb-6 text-white">Our Expertise</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
             We focus on core pillars to drive measurable results.
           </p>
         </div>
@@ -133,7 +133,7 @@ export default function Home() {
                   <CardTitle className="text-xl text-white group-hover:text-primary transition-colors">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base leading-relaxed text-gray-400">{service.description}</CardDescription>
+                  <CardDescription className="text-base leading-relaxed text-gray-300">{service.description}</CardDescription>
                 </CardContent>
               </Card>
             </motion.div>
@@ -154,10 +154,10 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div>
               <h2 className="text-3xl md:text-5xl font-bold font-sans mb-6 text-white">Why GrowthMeta?</h2>
-              <p className="text-lg text-gray-400 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                 We don't just execute; we partner. Our unique blend of technical prowess and creative strategy sets us apart.
               </p>
-              <Button asChild size="lg" variant="primary" showIcon>
+              <Button asChild size="lg" variant="primary" showIcon aria-label="Meet the Team">
                 <Link href="/about">Meet the Team</Link>
               </Button>
             </div>
@@ -185,14 +185,14 @@ export default function Home() {
       <Section className="border-t border-[#1F1F1F]">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-bold font-sans mb-8 text-white tracking-tight">Ready to Accelerate?</h2>
-          <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
             Join the forward-thinking companies using GrowthMeta to redefine their digital strategy.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Button asChild size="lg" variant="primary" showIcon className="h-14 px-10 text-lg">
+            <Button asChild size="lg" variant="primary" showIcon className="h-14 px-10 text-lg" aria-label="Get a Free Audit">
               <Link href="/contact">Get a Free Audit</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full px-10 h-14 text-lg bg-transparent border-[#333333] text-white hover:bg-white/5 hover:border-white/50">
+            <Button asChild variant="outline" size="lg" className="rounded-full px-10 h-14 text-lg bg-transparent border-[#333333] text-white hover:bg-white/5 hover:border-white/50" aria-label="Contact Sales">
               <Link href="/contact">Contact Sales</Link>
             </Button>
           </div>

@@ -10,7 +10,7 @@ export function ProblemSolution() {
         <Section>
             <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-5xl font-bold font-sans mb-4 text-white">The Difference</h2>
-                <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                <p className="text-gray-300 max-w-2xl mx-auto text-lg">
                     Why ambitious brands choose GrowthMeta over traditional agencies.
                 </p>
             </div>
@@ -24,7 +24,7 @@ export function ProblemSolution() {
                 >
                     <Card className="h-full bg-[#0A0A0A] border border-[#1F1F1F] opacity-70 hover:opacity-100 transition-opacity duration-300">
                         <CardContent className="p-10">
-                            <h3 className="text-2xl font-bold font-sans mb-6 text-gray-400">Traditional Agencies</h3>
+                            <h3 className="text-2xl font-bold font-sans mb-6 text-gray-300">Traditional Agencies</h3>
                             <div className="space-y-6">
                                 {[
                                     "Generic, cookie-cutter strategies",
@@ -32,7 +32,7 @@ export function ProblemSolution() {
                                     "Slow execution & communication",
                                     "Disconnected design & marketing"
                                 ].map((item, i) => (
-                                    <div key={i} className="flex items-start gap-4 text-gray-500">
+                                    <div key={i} className="flex items-start gap-4 text-gray-400">
                                         <X className="h-6 w-6 text-red-500/50 shrink-0" />
                                         <span className="text-lg">{item}</span>
                                     </div>

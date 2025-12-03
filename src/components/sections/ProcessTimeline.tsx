@@ -36,7 +36,7 @@ export function ProcessTimeline() {
         <Section className="bg-black/50 backdrop-blur-sm border-y border-white/5">
             <div className="text-center mb-20">
                 <h2 className="text-3xl md:text-5xl font-bold font-sans mb-6 text-white tracking-tight">How We Work</h2>
-                <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light">
+                <p className="text-gray-300 max-w-2xl mx-auto text-lg font-light">
                     A refined framework for predictable, scalable growth.
                 </p>
             </div>
@@ -65,7 +65,7 @@ export function ProcessTimeline() {
                             </div>
 
                             <h3 className="text-xl font-bold font-sans mb-4 text-white group-hover:text-primary transition-colors duration-300">{step.title}</h3>
-                            <p className="text-sm text-gray-400 leading-relaxed max-w-[250px] mx-auto group-hover:text-gray-300 transition-colors duration-300">{step.description}</p>
+                            <p className="text-sm text-gray-300 leading-relaxed max-w-[250px] mx-auto group-hover:text-gray-200 transition-colors duration-300">{step.description}</p>
                         </motion.div>
                     ))}
                 </div>
