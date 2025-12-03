@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Link from "next/link";
-import { ArrowRight, BarChart3, Globe, Zap, Check } from "lucide-react";
+import { ArrowRight, BarChart3, Globe, Zap, Check, PenTool, Layout, Search } from "lucide-react";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { ProblemSolution } from "@/components/sections/ProblemSolution";
 import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
@@ -15,39 +15,42 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         {/* Background */}
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-background to-background" />
+        <div className="absolute inset-0 -z-10 bg-background">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background opacity-50" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+        </div>
 
-        <div className="container mx-auto px-4 h-full min-h-[90vh] flex items-center">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
             {/* Text Content - Left */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-8"
+              className="space-y-8 text-center lg:text-left"
             >
-              <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm">
-                <span className="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse"></span>
-                Accepting New Enterprise Clients for Q1
+              <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary backdrop-blur-sm mx-auto lg:mx-0">
+                <span className="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse shadow-[0_0_10px_#3B82F6]"></span>
+                <span className="tracking-wide uppercase text-xs font-bold">Accepting New Clients</span>
               </div>
 
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/40 leading-[1.1]">
-                Scale Your Digital Presence with Data-Driven Precision.
+              <h1 className="text-5xl md:text-7xl font-bold font-sans tracking-tight text-white leading-[1.1]">
+                Scale Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Digital Presence</span> with Precision.
               </h1>
 
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
-                GrowthMeta combines enterprise SEO, B2B lead generation, and high-fidelity design to build engines of growth for modern businesses.
+              <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light">
+                GrowthMeta combines technical SEO, data-driven lead generation, and high-fidelity design to build engines of growth for ambitious brands.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button asChild size="lg" className="rounded-full px-8 h-12 text-base">
-                  <Link href="/contact">Start Growing <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+                <Button asChild size="lg" variant="primary" showIcon>
+                  <Link href="/contact">Start Growing</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="rounded-full px-8 h-12 text-base backdrop-blur-sm bg-background/50">
+                <Button asChild variant="outline" size="lg" className="rounded-full px-8 h-14 text-base backdrop-blur-sm bg-white/5 border-white/10 hover:bg-white/10 text-white">
                   <Link href="/work">View Our Work</Link>
                 </Button>
               </div>
@@ -55,11 +58,12 @@ export default function Home() {
 
             {/* Animation - Right */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              className="hidden lg:block"
+              className="hidden lg:block relative"
             >
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-full blur-3xl opacity-30 animate-pulse" />
               <HeroAnimation />
             </motion.div>
           </div>
@@ -73,29 +77,44 @@ export default function Home() {
       <ProblemSolution />
 
       {/* Services Preview */}
-      <Section className="bg-muted/5">
+      <Section className="bg-black/50">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">Our Expertise</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            We focus on three core pillars to drive measurable results.
+          <h2 className="text-3xl md:text-5xl font-bold font-sans mb-6 text-white">Our Expertise</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            We focus on core pillars to drive measurable results.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
-              title: "Enterprise SEO",
-              description: "Technical audits and content strategies that dominate search results.",
-              icon: Globe,
+              title: "Technical SEO",
+              description: "Deep audits and strategies that dominate search results.",
+              icon: Search,
             },
             {
-              title: "Lead Generation",
-              description: "High-converting funnels that turn traffic into revenue.",
+              title: "Paid Media",
+              description: "High-converting campaigns across Google, Meta, and LinkedIn.",
               icon: BarChart3,
             },
             {
-              title: "UI/UX Design",
-              description: "Pixel-perfect interfaces that build trust and engagement.",
+              title: "Content Strategy",
+              description: "Storytelling that builds authority and engages your audience.",
+              icon: PenTool,
+            },
+            {
+              title: "Web Design",
+              description: "Pixel-perfect, responsive interfaces that build trust.",
+              icon: Layout,
+            },
+            {
+              title: "Analytics",
+              description: "Advanced tracking and reporting for total transparency.",
+              icon: Globe,
+            },
+            {
+              title: "Brand Identity",
+              description: "Cohesive visual systems that make your brand unforgettable.",
               icon: Zap,
             },
           ].map((service, index) => (
@@ -104,17 +123,17 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.05 }}
             >
-              <Card className="h-full bg-background/50 backdrop-blur border-primary/10 hover:border-primary/30 transition-all duration-300 group">
+              <Card className="h-full bg-[#0E0E0E] border-[#1F1F1F] hover:border-primary/50 group transition-all duration-300 hover:-translate-y-1">
                 <CardHeader>
-                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="h-6 w-6 text-primary" />
+                  <div className="h-12 w-12 rounded-xl bg-[#141414] border border-[#1F1F1F] flex items-center justify-center mb-6 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-300">
+                    <service.icon className="h-6 w-6 text-gray-400 group-hover:text-primary transition-colors" />
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardTitle className="text-xl text-white group-hover:text-primary transition-colors">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base leading-relaxed">{service.description}</CardDescription>
+                  <CardDescription className="text-base leading-relaxed text-gray-400">{service.description}</CardDescription>
                 </CardContent>
               </Card>
             </motion.div>
@@ -130,14 +149,15 @@ export default function Home() {
 
       {/* Why Choose Us */}
       <Section>
-        <div className="bg-gradient-to-br from-muted/20 to-background border border-border rounded-3xl p-8 md:p-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="bg-[#0E0E0E] border border-[#1F1F1F] rounded-[32px] p-8 md:p-16 overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent opacity-50" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6">Why GrowthMeta?</h2>
-              <p className="text-lg text-muted-foreground mb-8">
+              <h2 className="text-3xl md:text-5xl font-bold font-sans mb-6 text-white">Why GrowthMeta?</h2>
+              <p className="text-lg text-gray-400 mb-8 leading-relaxed">
                 We don't just execute; we partner. Our unique blend of technical prowess and creative strategy sets us apart.
               </p>
-              <Button asChild size="lg" className="rounded-full">
+              <Button asChild size="lg" variant="primary" showIcon>
                 <Link href="/about">Meet the Team</Link>
               </Button>
             </div>
@@ -147,13 +167,13 @@ export default function Home() {
                 "Proprietary Data Modeling",
                 "Agile Execution Squads",
                 "Full-Funnel Attribution",
-                "Enterprise-Grade Security"
+                "Bank-Grade Security"
               ].map((feature, i) => (
-                <div key={i} className="flex items-center gap-3 bg-background/50 p-4 rounded-xl border border-border">
-                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <Check className="h-4 w-4 text-primary" />
+                <div key={i} className="flex items-center gap-4 bg-[#141414] p-5 rounded-2xl border border-[#1F1F1F] hover:border-primary/30 transition-colors group">
+                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <Check className="h-5 w-5 text-primary" />
                   </div>
-                  <span className="font-medium text-sm">{feature}</span>
+                  <span className="font-medium text-sm text-gray-300">{feature}</span>
                 </div>
               ))}
             </div>
@@ -162,17 +182,17 @@ export default function Home() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="border-t border-border">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">Ready to Accelerate?</h2>
-          <p className="text-xl text-muted-foreground mb-10">
+      <Section className="border-t border-[#1F1F1F]">
+        <div className="text-center max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-6xl font-bold font-sans mb-8 text-white tracking-tight">Ready to Accelerate?</h2>
+          <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
             Join the forward-thinking companies using GrowthMeta to redefine their digital strategy.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="rounded-full px-10 h-14 text-lg">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Button asChild size="lg" variant="primary" showIcon className="h-14 px-10 text-lg">
               <Link href="/contact">Get a Free Audit</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full px-10 h-14 text-lg">
+            <Button asChild variant="outline" size="lg" className="rounded-full px-10 h-14 text-lg bg-transparent border-[#333333] text-white hover:bg-white/5 hover:border-white/50">
               <Link href="/contact">Contact Sales</Link>
             </Button>
           </div>

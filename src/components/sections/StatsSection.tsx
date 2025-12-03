@@ -1,17 +1,15 @@
 "use client";
 
-"use client";
-
 import { Section } from "@/components/ui/section";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 const stats = [
-    { label: "Campaigns Launched", value: 750, suffix: "+", color: "from-blue-500 to-blue-600" },
-    { label: "Average ROI", value: 400, suffix: "%", color: "from-green-500 to-green-600" },
-    { label: "Years Experience", value: 10, suffix: "+", color: "from-cyan-500 to-cyan-600" },
-    { label: "Client Retention", value: 98, suffix: "%", color: "from-blue-600 to-green-500" },
+    { label: "Campaigns Launched", value: 750, suffix: "+", color: "from-primary to-accent" },
+    { label: "Average ROI", value: 400, suffix: "%", color: "from-accent to-primary" },
+    { label: "Years Experience", value: 10, suffix: "+", color: "from-primary to-blue-400" },
+    { label: "Client Retention", value: 98, suffix: "%", color: "from-accent to-emerald-400" },
 ];
 
 function Counter({ from, to, duration }: { from: number; to: number; duration: number }) {
@@ -46,7 +44,7 @@ function Counter({ from, to, duration }: { from: number; to: number; duration: n
 
 export function StatsSection() {
     return (
-        <Section className="border-y border-border bg-gradient-to-br from-blue-500/5 via-background to-green-500/5">
+        <Section className="border-y border-white/5 bg-black/40 backdrop-blur-sm">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {stats.map((stat, index) => (
                     <motion.div
@@ -61,7 +59,7 @@ export function StatsSection() {
                             <Counter from={0} to={stat.value} duration={2} />
                             {stat.suffix}
                         </div>
-                        <div className="text-sm md:text-base text-muted-foreground font-medium">
+                        <div className="text-sm md:text-base text-gray-400 font-medium group-hover:text-white transition-colors">
                             {stat.label}
                         </div>
                     </motion.div>

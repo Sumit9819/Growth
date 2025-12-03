@@ -46,7 +46,7 @@ export default function ServicesPage() {
     }, []);
 
     return (
-        <div className="flex flex-col min-h-screen pt-20">
+        <div className="flex flex-col min-h-screen pt-20 bg-background text-foreground">
             <Section>
                 <div className="text-center mb-16">
                     <motion.div
@@ -54,10 +54,10 @@ export default function ServicesPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h1 className="text-4xl md:text-6xl font-bold font-heading mb-6 bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
+                        <h1 className="text-4xl md:text-6xl font-bold font-sans mb-6 text-white">
                             Our Services
                         </h1>
-                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                        <p className="text-xl text-gray-400 max-w-3xl mx-auto">
                             Comprehensive digital marketing solutions tailored for sustainable, data-driven growth.
                         </p>
                     </motion.div>
@@ -77,24 +77,24 @@ export default function ServicesPage() {
                                     className="md:col-span-1"
                                 >
                                     <Link href={`/services/${service.slug.current}`} className="block h-full">
-                                        <Card className="h-full hover:scale-[1.02] transition-all duration-300 group overflow-hidden border-border/50 hover:border-primary/50 bg-card">
+                                        <Card className="h-full bg-[#0E0E0E] border-[#1F1F1F] hover:border-primary/50 hover:scale-[1.02] transition-all duration-300 group overflow-hidden">
                                             <CardHeader>
-                                                <div className="h-12 w-12 rounded-lg flex items-center justify-center mb-4 bg-primary/10">
-                                                    <IconComponent className="h-6 w-6 text-primary" />
+                                                <div className="h-12 w-12 rounded-xl flex items-center justify-center mb-4 bg-[#141414] border border-[#1F1F1F] group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors">
+                                                    <IconComponent className="h-6 w-6 text-gray-400 group-hover:text-primary transition-colors" />
                                                 </div>
-                                                <CardTitle className="text-xl mb-2 flex items-center gap-2">
+                                                <CardTitle className="text-xl mb-2 flex items-center gap-2 text-white group-hover:text-primary transition-colors">
                                                     {service.title}
                                                     <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-primary" />
                                                 </CardTitle>
                                                 {service.description && (
-                                                    <CardDescription className="text-base leading-relaxed">
+                                                    <CardDescription className="text-base leading-relaxed text-gray-400">
                                                         {service.description}
                                                     </CardDescription>
                                                 )}
                                             </CardHeader>
                                             <CardContent>
                                                 {!service.description && (
-                                                    <p className="text-sm text-muted-foreground">
+                                                    <p className="text-sm text-gray-500">
                                                         Learn more about our {service.title.toLowerCase()} services.
                                                     </p>
                                                 )}
@@ -105,9 +105,9 @@ export default function ServicesPage() {
                             );
                         })
                     ) : (
-                        <div className="col-span-3 text-center py-12 text-muted-foreground">
+                        <div className="col-span-3 text-center py-12 text-gray-500">
                             <p>No services found. Please add services in the Sanity Studio.</p>
-                            <Button asChild variant="outline" className="mt-4">
+                            <Button asChild variant="outline" className="mt-4 border-[#333333] text-white hover:bg-white/5">
                                 <Link href="/studio">Go to Studio</Link>
                             </Button>
                         </div>

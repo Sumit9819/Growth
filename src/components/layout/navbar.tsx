@@ -20,24 +20,32 @@ export function Navbar() {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="container mx-auto flex h-20 items-center justify-between">
-                <Link href="/" className="flex items-center gap-3">
-                    <Image src="/logo.png" alt="GrowthMeta" width={40} height={40} className="h-10 w-10" />
-                    <span className="text-xl font-bold font-heading tracking-tight">GrowthMeta</span>
+        <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-black/50 backdrop-blur-xl supports-[backdrop-filter]:bg-black/20">
+            <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+                <Link href="/" className="flex items-center gap-3 group">
+                    <div className="relative h-10 w-10 overflow-hidden rounded-lg">
+                        <Image
+                            src="/logo.png"
+                            alt="GrowthMeta"
+                            width={40}
+                            height={40}
+                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                    </div>
+                    <span className="text-xl font-bold font-heading tracking-tight text-white group-hover:text-primary transition-colors">GrowthMeta</span>
                 </Link>
 
                 {/* Desktop Nav - Centered */}
-                <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+                <nav className="hidden md:flex items-center gap-1 bg-white/5 rounded-full px-2 py-1 border border-white/5 absolute left-1/2 -translate-x-1/2 backdrop-blur-md">
                     {navItems.map((item) => (
                         <Link
                             key={item.href}
                             href={item.href}
                             className={cn(
-                                "text-sm font-medium transition-colors hover:text-primary",
+                                "px-4 py-2 text-sm font-medium rounded-full transition-all duration-300",
                                 pathname === item.href
-                                    ? "text-foreground"
-                                    : "text-muted-foreground"
+                                    ? "bg-white/10 text-white shadow-sm"
+                                    : "text-gray-400 hover:text-white hover:bg-white/5"
                             )}
                         >
                             {item.name}
@@ -47,14 +55,14 @@ export function Navbar() {
 
                 {/* CTA Button - Right */}
                 <div className="hidden md:block">
-                    <Button asChild size="sm" variant="primary">
+                    <Button asChild size="sm" variant="primary" showIcon>
                         <Link href="/contact">Get Started</Link>
                     </Button>
                 </div>
 
                 {/* Mobile Menu Toggle */}
                 <button
-                    className="md:hidden p-2 text-muted-foreground hover:text-foreground"
+                    className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -63,26 +71,28 @@ export function Navbar() {
 
             {/* Mobile Nav */}
             {isOpen && (
-                <div className="md:hidden border-b border-border/40 bg-background">
-                    <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+                <div className="md:hidden border-b border-white/5 bg-black/95 backdrop-blur-xl absolute w-full top-20 left-0">
+                    <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
                         {navItems.map((item) => (
                             <Link
                                 key={item.href}
                                 href={item.href}
                                 className={cn(
-                                    "text-sm font-medium transition-colors hover:text-primary",
+                                    "text-lg font-medium transition-colors py-2 border-b border-white/5",
                                     pathname === item.href
-                                        ? "text-foreground"
-                                        : "text-muted-foreground"
+                                        ? "text-primary"
+                                        : "text-gray-400 hover:text-white"
                                 )}
                                 onClick={() => setIsOpen(false)}
                             >
                                 {item.name}
                             </Link>
                         ))}
-                        <Button asChild className="w-full" size="sm">
-                            <Link href="/contact" onClick={() => setIsOpen(false)}>Get Started</Link>
-                        </Button>
+                        <div className="pt-4">
+                            <Button asChild className="w-full" size="lg" variant="primary" showIcon>
+                                <Link href="/contact" onClick={() => setIsOpen(false)}>Get Started</Link>
+                            </Button>
+                        </div>
                     </div>
                 </div>
             )}

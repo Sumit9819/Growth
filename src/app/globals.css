@@ -3,7 +3,7 @@
 /* stylelint-disable-next-line */
 @theme {
   --font-sans: var(--font-inter);
-  --font-heading: var(--font-outfit);
+  --font-code: var(--font-fira-code);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -21,30 +21,42 @@
   --color-accent-foreground: var(--accent-foreground);
 
   --color-border: var(--border);
+  --color-input: var(--input);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
 }
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
+  /* Nebula Dark Modern Palette - Blue/Green Theme */
+  --background: #030303;
+  --foreground: #FFFFFF;
+
+  --card: #0E0E0E;
+  --card-foreground: #FFFFFF;
+  --card-secondary: #141414;
+
+  --input: #000000;
 
   --primary: #3B82F6;
-  --primary-foreground: #000000;
+  /* Blue */
+  --primary-foreground: #FFFFFF;
 
-  --secondary: #10B981;
-  --secondary-foreground: #ffffff;
+  --secondary: #9CA3AF;
+  --secondary-foreground: #FFFFFF;
 
-  --muted: #1a1a1a;
-  --muted-foreground: #a1a1aa;
+  --muted: #1F1F1F;
+  --muted-foreground: #6B7280;
 
-  --accent: #06B6D4;
-  --accent-foreground: #ffffff;
+  --accent: #10B981;
+  /* Green */
+  --accent-foreground: #FFFFFF;
+
+  --success: #10B981;
 
   --border: #333333;
+  --border-highlight: #333333;
 
-  /* Brand colors */
-  --blue: #3B82F6;
-  --green: #10B981;
-  --cyan: #06B6D4;
+  --code: #A5B4FC;
 }
 
 body {

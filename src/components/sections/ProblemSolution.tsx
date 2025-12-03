@@ -1,50 +1,45 @@
 "use client";
 
-"use client";
-
 import { Section } from "@/components/ui/section";
 import { motion } from "framer-motion";
-import { XCircle, CheckCircle2 } from "lucide-react";
+import { X, Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 export function ProblemSolution() {
     return (
         <Section>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* The Problem */}
+            <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-5xl font-bold font-sans mb-4 text-white">The Difference</h2>
+                <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                    Why ambitious brands choose GrowthMeta over traditional agencies.
+                </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                {/* The Struggle */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="space-y-8"
                 >
-                    <div>
-                        <h2 className="text-3xl font-bold font-heading mb-4 bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">The Struggle</h2>
-                        <p className="text-muted-foreground text-lg">
-                            Modern businesses are drowning in data but starving for insights.
-                        </p>
-                    </div>
-
-                    <div className="space-y-4">
-                        {[
-                            "Leads drying up despite increased ad spend.",
-                            "Opaque reporting that hides true ROI.",
-                            "Generic designs that fail to convert.",
-                            "Disconnect between marketing and sales."
-                        ].map((item, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, x: -10 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
-                                className="flex items-start gap-3 text-muted-foreground/80"
-                            >
-                                <XCircle className="h-6 w-6 text-red-500/70 shrink-0" />
-                                <span>{item}</span>
-                            </motion.div>
-                        ))}
-                    </div>
+                    <Card className="h-full bg-[#0A0A0A] border border-[#1F1F1F] opacity-70 hover:opacity-100 transition-opacity duration-300">
+                        <CardContent className="p-10">
+                            <h3 className="text-2xl font-bold font-sans mb-6 text-gray-400">Traditional Agencies</h3>
+                            <div className="space-y-6">
+                                {[
+                                    "Generic, cookie-cutter strategies",
+                                    "Opaque reporting & vanity metrics",
+                                    "Slow execution & communication",
+                                    "Disconnected design & marketing"
+                                ].map((item, i) => (
+                                    <div key={i} className="flex items-start gap-4 text-gray-500">
+                                        <X className="h-6 w-6 text-red-500/50 shrink-0" />
+                                        <span className="text-lg">{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                    </Card>
                 </motion.div>
 
                 {/* The Solution */}
@@ -53,33 +48,23 @@ export function ProblemSolution() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                 >
-                    <Card className="bg-gradient-to-br from-blue-500/10 via-background to-green-500/10 border-blue-500/20 shadow-[0_0_50px_rgba(59,130,246,0.1)]">
-                        <CardContent className="p-8 space-y-8">
-                            <div>
-                                <h2 className="text-3xl font-bold font-heading mb-4 bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">The GrowthMeta Way</h2>
-                                <p className="text-foreground text-lg">
-                                    We build precision growth engines powered by data.
-                                </p>
-                            </div>
-
-                            <div className="space-y-4">
+                    <Card className="h-full bg-[#0E0E0E] border border-primary/20 shadow-[0_0_40px_rgba(59,130,246,0.1)] relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent" />
+                        <CardContent className="p-10">
+                            <h3 className="text-2xl font-bold font-sans mb-6 text-white">The GrowthMeta Way</h3>
+                            <div className="space-y-6">
                                 {[
-                                    "Predictive analytics to forecast lead quality.",
-                                    "Real-time dashboards with transparent metrics.",
-                                    "High-fidelity, conversion-focused design systems.",
-                                    "Full-funnel alignment from click to close."
+                                    "Data-backed, bespoke growth engines",
+                                    "Real-time, transparent ROI tracking",
+                                    "Agile squads & rapid deployment",
+                                    "Unified brand & performance strategy"
                                 ].map((item, i) => (
-                                    <motion.div
-                                        key={i}
-                                        initial={{ opacity: 0, x: 10 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: i * 0.1 }}
-                                        className="flex items-start gap-3 text-foreground"
-                                    >
-                                        <CheckCircle2 className="h-6 w-6 text-green-500 shrink-0" />
-                                        <span>{item}</span>
-                                    </motion.div>
+                                    <div key={i} className="flex items-start gap-4 text-white">
+                                        <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                                            <Check className="h-4 w-4 text-primary" />
+                                        </div>
+                                        <span className="text-lg font-medium">{item}</span>
+                                    </div>
                                 ))}
                             </div>
                         </CardContent>
