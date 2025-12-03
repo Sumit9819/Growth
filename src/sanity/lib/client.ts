@@ -7,5 +7,9 @@ export const client = createClient({
     dataset: dataset || 'production',
     apiVersion,
     useCdn,
-    perspective: 'published',
+    stega: {
+        studioUrl: process.env.NODE_ENV === 'development'
+            ? 'http://localhost:3000/studio'
+            : 'https://growthmeta.vercel.app/studio',
+    }
 })

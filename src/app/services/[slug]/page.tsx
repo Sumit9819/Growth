@@ -1,4 +1,4 @@
-import { client } from "@/sanity/lib/client";
+
 import { ServiceHero } from "@/components/service/ServiceHero";
 import { BenefitsGrid } from "@/components/service/BenefitsGrid";
 import { ProcessTimeline } from "@/components/service/ProcessTimeline";
@@ -16,6 +16,8 @@ interface ServicePageProps {
     params: { slug: string };
 }
 
+import { sanityFetch } from "@/sanity/lib/fetch";
+
 async function getService(slug: string) {
     const query = `*[_type == "service" && slug.current == $slug][0]{
     title,
@@ -32,7 +34,11 @@ async function getService(slug: string) {
     content
   }`;
 
-    const service = await client.fetch(query, { slug });
+    const service = await sanityFetch<any>({
+        query,
+        params: { slug },
+        tags: [`service:${slug}`],
+    });
     return service;
 }
 
