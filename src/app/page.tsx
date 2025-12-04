@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -33,12 +32,7 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
             {/* Text Content - Left */}
-            <motion.div
-              initial={{ x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-8 text-center lg:text-left"
-            >
+            <div className="space-y-8 text-center lg:text-left animate-fade-in-left">
               <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary backdrop-blur-sm mx-auto lg:mx-0">
                 <span className="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse shadow-[0_0_10px_#3B82F6]"></span>
                 <span className="tracking-wide uppercase text-xs font-bold">Accepting New Clients</span>
@@ -60,18 +54,13 @@ export default function Home() {
                   <Link href="/work">View Our Work</Link>
                 </Button>
               </div>
-            </motion.div>
+            </div>
 
             {/* Animation - Right */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              className="hidden lg:block relative"
-            >
+            <div className="hidden lg:block relative animate-fade-in-scale">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-full blur-3xl opacity-30 animate-pulse" />
               <HeroAnimation />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -124,12 +113,9 @@ export default function Home() {
               icon: Zap,
             },
           ].map((service, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
+              className={`animate-fade-in-up animate-stagger-${index + 1}`}
             >
               <Card className="h-full bg-[#0E0E0E] border-[#1F1F1F] hover:border-primary/50 group transition-all duration-300 hover:-translate-y-1">
                 <CardHeader>
@@ -142,7 +128,7 @@ export default function Home() {
                   <CardDescription className="text-base leading-relaxed text-gray-300">{service.description}</CardDescription>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
       </Section>
