@@ -27,10 +27,10 @@ export function Footer() {
                     </div>
 
                     <div className="flex flex-col gap-4">
-                        <h4 className="font-semibold text-foreground">Legal</h4>
-                        <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
-                        <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
-                        <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</Link>
+                        <h4 className="font-semibold text-foreground">Contact</h4>
+                        <a href="mailto:info@growthmeta.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">info@growthmeta.com</a>
+                        <a href="tel:9764183384" className="text-sm text-muted-foreground hover:text-foreground transition-colors">(976) 418-3384</a>
+                        <p className="text-sm text-muted-foreground">Taudaha, Kirtipur, Nepal</p>
                     </div>
                 </div>
 
