@@ -6,12 +6,18 @@ import { Section } from "@/components/ui/section";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Link from "next/link";
 import { ArrowRight, BarChart3, Globe, Zap, Check, PenTool, Layout, Search } from "lucide-react";
-import { StatsSection } from "@/components/sections/StatsSection";
-import { ProblemSolution } from "@/components/sections/ProblemSolution";
-import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { HeroAnimation } from "@/components/ui/hero-animation";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const HeroAnimation = dynamic(() => import("@/components/ui/hero-animation").then(mod => mod.HeroAnimation), {
+  ssr: false,
+  loading: () => <div className="w-full h-full min-h-[500px]" />
+});
+
+const StatsSection = dynamic(() => import("@/components/sections/StatsSection").then(mod => mod.StatsSection), { ssr: false });
+const ProblemSolution = dynamic(() => import("@/components/sections/ProblemSolution").then(mod => mod.ProblemSolution));
+const ProcessTimeline = dynamic(() => import("@/components/sections/ProcessTimeline").then(mod => mod.ProcessTimeline));
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then(mod => mod.Testimonials));
 
 export default function Home() {
   return (
@@ -28,7 +34,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
             {/* Text Content - Left */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="space-y-8 text-center lg:text-left"
