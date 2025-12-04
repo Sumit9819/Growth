@@ -30,6 +30,17 @@ async function getPost(slug: string) {
     }
 }
 
+// Generate static params for all posts
+export async function generateStaticParams() {
+    const posts = await client.fetch<Array<{ slug: { current: string } }>>(
+        `*[_type == "post"]{ slug }`
+    );
+
+    return posts.map((post) => ({
+        slug: post.slug.current,
+    }));
+}
+
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
     const post = await getPost(params.slug);
 

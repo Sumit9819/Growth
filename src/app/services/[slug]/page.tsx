@@ -47,6 +47,17 @@ async function getService(slug: string) {
     }
 }
 
+// Generate static params for all services
+export async function generateStaticParams() {
+    const services = await client.fetch<Array<{ slug: { current: string } }>>(
+        `*[_type == "service"]{ slug }`
+    );
+
+    return services.map((service) => ({
+        slug: service.slug.current,
+    }));
+}
+
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
     const service = await getService(params.slug);
 
