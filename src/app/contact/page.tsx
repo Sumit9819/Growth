@@ -25,7 +25,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-medium text-white">Email</h3>
-                                    <p className="text-gray-400">hello@growthmeta.com</p>
+                                    <p className="text-gray-400">info@growthmeta.com</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4 group">
@@ -34,7 +34,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-medium text-white">Phone</h3>
-                                    <p className="text-gray-400">+1 (555) 123-4567</p>
+                                    <p className="text-gray-400">(976) 418-3384</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4 group">
@@ -43,7 +43,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-medium text-white">Office</h3>
-                                    <p className="text-gray-400">123 Growth St, Tech City, TC 90210</p>
+                                    <p className="text-gray-400">Taudaha, Kirtipur, Nepal</p>
                                 </div>
                             </div>
                         </div>
