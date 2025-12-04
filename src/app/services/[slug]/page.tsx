@@ -21,6 +21,8 @@ import { client } from "@/sanity/lib/client";
 
 
 async function getService(slug: string) {
+    console.log('[getService] Fetching service with slug:', slug);
+
     const query = `*[_type == "service" && slug.current == $slug][0]{
     title,
     metaDescription,
@@ -37,14 +39,16 @@ async function getService(slug: string) {
   }`;
 
     try {
+        console.log('[getService] Executing sanityFetch...');
         const service = await sanityFetch<any>({
             query,
             params: { slug },
             tags: [`service:${slug}`],
         });
+        console.log('[getService] Result:', service ? `Found: ${service.title}` : 'NULL');
         return service;
     } catch (error) {
-        console.error("Error fetching service:", error);
+        console.error("[getService] Error fetching service:", error);
         return null;
     }
 }
