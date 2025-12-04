@@ -68,7 +68,8 @@ export async function generateStaticParams() {
 export const dynamicParams = true;
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
-    const service = await getService(params.slug);
+    const { slug } = await params;
+    const service = await getService(slug);
 
     if (!service) {
         return {
@@ -88,7 +89,8 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {
-    const service = await getService(params.slug);
+    const { slug } = await params;
+    const service = await getService(slug);
 
     if (!service) {
         notFound();
