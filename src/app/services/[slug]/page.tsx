@@ -14,6 +14,7 @@ import type { Metadata } from "next";
 import { PortableText } from '@portabletext/react';
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
+import { SchemaScript } from "@/components/seo/SchemaScript";
 
 interface ServicePageProps {
     params: { slug: string };
@@ -38,7 +39,10 @@ async function getService(slug: string) {
     process,
     results,
     faqs,
-    content
+    results,
+    faqs,
+    content,
+    customSchema
   }`;
 
     try {
@@ -101,6 +105,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
     return (
         <div className="flex flex-col min-h-screen">
+            <SchemaScript schema={service.customSchema} />
             {/* Hero Section */}
             <ServiceHero
                 headline={service.heroHeadline || service.title}

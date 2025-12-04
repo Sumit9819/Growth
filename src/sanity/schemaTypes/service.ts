@@ -28,6 +28,7 @@ export const service = defineType({
             description: 'SEO meta description (155-160 characters)',
             validation: Rule => Rule.max(160),
         }),
+
         defineField({
             name: 'description',
             title: 'Short Description',
@@ -139,6 +140,13 @@ export const service = defineType({
             type: 'array',
             of: [{ type: 'block' }],
             description: 'Additional detailed content',
+        }),
+        defineField({
+            name: 'customSchema',
+            title: 'Custom Schema (JSON-LD)',
+            type: 'text',
+            description: 'Paste your custom JSON-LD schema here. Do not include <script> tags.',
+            rows: 10,
         }),
     ],
     preview: {

@@ -1,12 +1,7 @@
-"use client";
-
 import type { Metadata } from "next";
 import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { VisualEditingWrapper } from "@/components/VisualEditingWrapper";
-import { usePathname } from "next/navigation";
+import ClientLayout from "@/components/layout/ClientLayout";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -18,25 +13,34 @@ const firaCode = Fira_Code({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+  title: "GrowthMeta - Digital Growth Agency",
+  description: "GrowthMeta combines technical SEO, data-driven lead generation, and high-fidelity design to build engines of growth for ambitious brands.",
+  openGraph: {
+    title: "GrowthMeta - Digital Growth Agency",
+    description: "GrowthMeta combines technical SEO, data-driven lead generation, and high-fidelity design to build engines of growth for ambitious brands.",
+    type: "website",
+    locale: "en_US",
+    siteName: "GrowthMeta",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GrowthMeta - Digital Growth Agency",
+    description: "GrowthMeta combines technical SEO, data-driven lead generation, and high-fidelity design to build engines of growth for ambitious brands.",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pathname = usePathname();
-  const isStudioRoute = pathname?.startsWith("/studio");
-
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${firaCode.variable} antialiased bg-background text-foreground font-sans ${!isStudioRoute ? 'flex flex-col min-h-screen' : ''}`}
+        className={`${inter.variable} ${firaCode.variable} antialiased bg-background text-foreground font-sans flex flex-col min-h-screen`}
       >
-        {!isStudioRoute && <Navbar />}
-        <main className={!isStudioRoute ? "flex-1" : ""}>
-          {children}
-        </main>
-        {!isStudioRoute && <Footer />}
-        <VisualEditingWrapper />
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

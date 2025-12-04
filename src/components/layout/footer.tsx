@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 export function Footer() {
     return (
@@ -53,7 +54,15 @@ export function Footer() {
                         © {new Date().getFullYear()} GrowthMeta. All rights reserved.
                     </div>
                     <div className="flex gap-6">
-                        {/* Social icons could go here */}
+                        <a href="https://www.facebook.com/growthmeta/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook">
+                            <Facebook className="h-5 w-5" />
+                        </a>
+                        <a href="https://www.instagram.com/growthmetamarketing/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
+                            <Instagram className="h-5 w-5" />
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
+                            <Linkedin className="h-5 w-5" />
+                        </a>
                     </div>
                 </div>
             </div>

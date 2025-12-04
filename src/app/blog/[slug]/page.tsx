@@ -5,6 +5,7 @@ import { Calendar, User } from "lucide-react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { PortableText } from '@portabletext/react';
+import { SchemaScript } from "@/components/seo/SchemaScript";
 
 interface BlogPostPageProps {
     params: { slug: string };
@@ -18,7 +19,10 @@ async function getPost(slug: string) {
     category,
     content,
     metaDescription,
-    excerpt
+    content,
+    metaDescription,
+    excerpt,
+    customSchema
   }`;
 
     try {
@@ -68,6 +72,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
     return (
         <div className="flex flex-col min-h-screen pt-32">
+            <SchemaScript schema={post.customSchema} />
             <Section>
                 <article className="max-w-4xl mx-auto">
                     {/* Header */}

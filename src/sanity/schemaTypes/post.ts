@@ -88,6 +88,13 @@ export const post = defineType({
             description: 'SEO meta description',
             validation: Rule => Rule.max(160),
         }),
+        defineField({
+            name: 'customSchema',
+            title: 'Custom Schema (JSON-LD)',
+            type: 'text',
+            description: 'Paste your custom JSON-LD schema here. Do not include <script> tags.',
+            rows: 10,
+        }),
     ],
     preview: {
         select: {
