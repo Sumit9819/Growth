@@ -41,6 +41,9 @@ export async function generateStaticParams() {
     }));
 }
 
+// Allow dynamic params for posts created after build
+export const dynamicParams = true;
+
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
     const post = await getPost(params.slug);
 

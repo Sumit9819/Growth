@@ -60,6 +60,9 @@ export async function generateStaticParams() {
     }));
 }
 
+// Allow dynamic params for services created after build
+export const dynamicParams = true;
+
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
     const service = await getService(params.slug);
 
