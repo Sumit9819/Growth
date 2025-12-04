@@ -113,3 +113,161 @@ h6 {
     max-width: 1400px;
   }
 }
+
+/* Prose styles for PortableText content */
+.prose {
+  color: var(--foreground);
+  max-width: 100%;
+}
+
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  line-height: 1.75;
+  font-size: 1.125rem;
+}
+
+.prose h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.1111111;
+  margin-top: 0;
+  margin-bottom: 0.8888889em;
+  font-family: var(--font-heading);
+}
+
+.prose h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.3333333;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  font-family: var(--font-heading);
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  font-family: var(--font-heading);
+}
+
+.prose h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-family: var(--font-heading);
+}
+
+.prose strong {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.prose ul {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+  list-style-type: disc;
+}
+
+.prose ol {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.75;
+}
+
+.prose blockquote {
+  font-weight: 500;
+  font-style: italic;
+  color: var(--muted-foreground);
+  border-left-width: 0.25rem;
+  border-left-color: var(--primary);
+  quotes: "\201C" "\201D" "\2018" "\2019";
+  margin-top: 1.6em;
+  margin-bottom: 1.6em;
+  padding-left: 1em;
+}
+
+.prose a {
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.prose a:hover {
+  color: var(--accent);
+}
+
+.prose code {
+  color: var(--code);
+  font-weight: 600;
+  font-size: 0.875em;
+}
+
+/* Responsive prose sizes */
+@media (min-width: 1024px) {
+  .prose-lg p {
+    font-size: 1.25rem;
+    margin-top: 1.3333333em;
+    margin-bottom: 1.3333333em;
+    line-height: 1.8;
+  }
+
+  .prose-lg h2 {
+    font-size: 2.25rem;
+    margin-top: 1.5555556em;
+    margin-bottom: 0.8888889em;
+    line-height: 1.3333333;
+  }
+
+  .prose-lg h3 {
+    font-size: 1.875rem;
+    margin-top: 1.6em;
+    margin-bottom: 0.6666667em;
+    line-height: 1.4666667;
+  }
+
+  .prose-lg h4 {
+    font-size: 1.5rem;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.5;
+  }
+}
+
+/* Dark mode prose adjustments */
+.prose-invert {
+  color: var(--foreground);
+}
+
+.prose-invert h1,
+.prose-invert h2,
+.prose-invert h3,
+.prose-invert h4 {
+  color: var(--foreground);
+}
+
+.prose-invert strong {
+  color: var(--foreground);
+}
+
+.prose-invert a {
+  color: var(--primary);
+}
+
+.prose-invert blockquote {
+  color: var(--muted-foreground);
+  border-left-color: var(--primary);
+}
