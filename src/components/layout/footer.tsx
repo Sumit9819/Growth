@@ -40,9 +40,9 @@ export function Footer() {
                             © {new Date().getFullYear()} GrowthMeta. All rights reserved.
                         </div>
                         <div className="flex gap-4 text-sm">
-                            <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
-                            <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
-                            <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</Link>
+                            <Link href="/privacy-policy" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
+                            <Link href="/terms-of-service" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
+                            <Link href="/cookie-policy" className="text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</Link>
                         </div>
                     </div>
                     <div className="flex gap-6">

@@ -41,7 +41,7 @@ export function Testimonials() {
                             <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">SM</div>
                             <div>
                                 <div className="font-bold text-white">Sarah Mitchell</div>
-                                <div className="text-sm text-gray-500">CMO, TechStart Inc.</div>
+                                <div className="text-sm text-gray-500">CMO</div>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ export function Testimonials() {
                             <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">MT</div>
                             <div>
                                 <div className="font-bold text-white">Michael Torres</div>
-                                <div className="text-sm text-gray-500">Director of Growth, ShopNow</div>
+                                <div className="text-sm text-gray-500">Director</div>
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@ export function Testimonials() {
                         <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">LC</div>
                         <div>
                             <div className="font-bold text-white">Lisa Chen</div>
-                            <div className="text-xs text-gray-500">VP Marketing, CloudFlow</div>
+                            <div className="text-xs text-gray-500">VP Marketing</div>
                         </div>
                     </div>
                 </motion.div>
@@ -109,7 +109,7 @@ export function Testimonials() {
                         <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white font-bold text-sm">JP</div>
                         <div>
                             <div className="font-bold text-white">James Park</div>
-                            <div className="text-xs text-gray-300">CEO, EcoVentures</div>
+                            <div className="text-xs text-gray-300">CEO</div>
                         </div>
                     </div>
                 </motion.div>
