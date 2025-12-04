@@ -35,8 +35,15 @@ export function Footer() {
                 </div>
 
                 <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div className="text-sm text-muted-foreground">
-                        © {new Date().getFullYear()} GrowthMeta. All rights reserved.
+                    <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                        <div className="text-sm text-muted-foreground">
+                            © {new Date().getFullYear()} GrowthMeta. All rights reserved.
+                        </div>
+                        <div className="flex gap-4 text-sm">
+                            <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
+                            <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
+                            <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</Link>
+                        </div>
                     </div>
                     <div className="flex gap-6">
                         {/* Social icons could go here */}
