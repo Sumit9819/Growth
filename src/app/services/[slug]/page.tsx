@@ -17,6 +17,8 @@ interface ServicePageProps {
 }
 
 import { sanityFetch } from "@/sanity/lib/fetch";
+import { client } from "@/sanity/lib/client";
+
 
 async function getService(slug: string) {
     const query = `*[_type == "service" && slug.current == $slug][0]{
