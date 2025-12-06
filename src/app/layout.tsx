@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Fira_Code } from "next/font/google";
+import { draftMode } from "next/headers";
 import "./globals.css";
 import ClientLayout from "@/components/layout/ClientLayout";
 
@@ -32,17 +33,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { isEnabled: isDraftMode } = await draftMode();
+
   return (
     <html lang="en" className="scroll-smooth">
       <body
         className={`${inter.variable} ${firaCode.variable} antialiased bg-background text-foreground font-sans flex flex-col min-h-screen`}
       >
-        <ClientLayout>{children}</ClientLayout>
+        <ClientLayout isDraftMode={isDraftMode}>{children}</ClientLayout>
       </body>
     </html>
   );

@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -7,13 +5,8 @@ import Link from "next/link";
 import { ArrowRight, BarChart3, Globe, Zap, Check, PenTool, Layout, Search } from "lucide-react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { HeroAnimation, StatsSection } from "@/components/HomeClientComponents";
 
-const HeroAnimation = dynamic(() => import("@/components/ui/hero-animation").then(mod => mod.HeroAnimation), {
-  ssr: false,
-  loading: () => <div className="w-full h-full min-h-[500px]" />
-});
-
-const StatsSection = dynamic(() => import("@/components/sections/StatsSection").then(mod => mod.StatsSection), { ssr: false });
 const ProblemSolution = dynamic(() => import("@/components/sections/ProblemSolution").then(mod => mod.ProblemSolution));
 const ProcessTimeline = dynamic(() => import("@/components/sections/ProcessTimeline").then(mod => mod.ProcessTimeline));
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then(mod => mod.Testimonials));

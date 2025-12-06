@@ -1,14 +1,18 @@
 "use client";
 
 import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
 import { VisualEditingWrapper } from "@/components/VisualEditingWrapper";
 import { usePathname } from "next/navigation";
+import dynamic from "next/dynamic";
+
+const Footer = dynamic(() => import("@/components/layout/footer").then((mod) => mod.Footer));
 
 export default function ClientLayout({
     children,
+    isDraftMode,
 }: {
     children: React.ReactNode;
+    isDraftMode: boolean;
 }) {
     const pathname = usePathname();
     const isStudioRoute = pathname?.startsWith("/studio");
@@ -20,7 +24,7 @@ export default function ClientLayout({
                 {children}
             </main>
             {!isStudioRoute && <Footer />}
-            <VisualEditingWrapper />
+            {isDraftMode && <VisualEditingWrapper />}
         </>
     );
 }
