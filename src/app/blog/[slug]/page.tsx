@@ -8,7 +8,7 @@ import { PortableText } from '@portabletext/react';
 import { SchemaScript } from "@/components/seo/SchemaScript";
 
 interface BlogPostPageProps {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }
 
 async function getPost(slug: string) {

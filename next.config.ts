@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion', 'sanity', '@sanity/vision', '@sanity/presentation'],
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   compress: true,
   poweredByHeader: false,
